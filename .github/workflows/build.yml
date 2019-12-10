@@ -1,4 +1,4 @@
-name: .NET Core
+name: Build .NET Core Services
 
 on: [push]
 
@@ -13,5 +13,5 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.0.101
-    - name: Build with dotnet
+    - name: Build Contacts Service
       run: dotnet build Contacts/ContactsService.sln --configuration Release 
