@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ContactsService.Models;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ContactsService.Repository
+﻿namespace ContactsService.Repository
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using ContactsService.Models;
+
     public interface IContactsRepository
     {
-        public IEnumerable<Contact> Contacts { get; }
+        public Task<IEnumerable<Contact>> SearchAsync(string filter = null);
 
-        void Add(Contact value);
+        Task<Contact> AddAsync(Contact value);
 
-        void Remove(int id);
+        Task<Contact> ReplaceAsync(Contact value);
+
+        Task RemoveAsync(Guid id);
     }
 }
