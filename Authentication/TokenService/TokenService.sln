@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenService", "TokenService\TokenService.csproj", "{95A7431E-68E3-4E1E-9777-0C30E21533ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2EFF02D1-B030-4566-AFC5-64D94FBDE66B}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis.ruleset = CodeAnalysis.ruleset
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95A7431E-68E3-4E1E-9777-0C30E21533ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A7431E-68E3-4E1E-9777-0C30E21533ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A7431E-68E3-4E1E-9777-0C30E21533ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A7431E-68E3-4E1E-9777-0C30E21533ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6F67368-CB97-46E7-A25D-187A2F59DC28}
+	EndGlobalSection
+EndGlobal
