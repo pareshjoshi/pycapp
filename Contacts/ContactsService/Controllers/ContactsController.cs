@@ -6,20 +6,31 @@
     using System.Threading.Tasks;
     using ContactsService.Models;
     using ContactsService.Repository;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 
+    /// <summary>
+    /// The contacts controller that exposes the endpoints to manage contacts information.
+    /// </summary>
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ContactsController : ControllerBase
     {
         private readonly IContactsRepository repository;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactsController"/> class.
+        /// </summary>
         public ContactsController(IContactsRepository repository)
         {
             this.repository = repository;
         }
 
+        /// <summary>
+        /// Gets all contacts from the repository.
+        /// </summary>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -36,6 +47,9 @@
             }
         }
 
+        /// <summary>
+        /// Gets the contact that represents the contact id <paramref name="contactId"/>.
+        /// </summary>
         [HttpGet("{contactId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
@@ -61,6 +75,9 @@
             }
         }
 
+        /// <summary>
+        /// Creates a new contact.
+        /// </summary>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -77,6 +94,9 @@
             }
         }
 
+        /// <summary>
+        /// Updates the contact.
+        /// </summary>
         [HttpPost("{contactId}")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -98,6 +118,9 @@
             }
         }
 
+        /// <summary>
+        /// Deletes the contact permenantly.
+        /// </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

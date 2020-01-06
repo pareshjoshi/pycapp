@@ -15,6 +15,9 @@
     {
         private readonly IMongoCollection<Contact> collection;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactsRepository"/> class.
+        /// </summary>
         public ContactsRepository(IMongoClient connection, IOptions<Mongo> mongoConfiguration)
         {
             var configuration = mongoConfiguration.Value;
@@ -23,6 +26,7 @@
             collection = database.GetCollection<Contact>(configuration.ContactsCollection);
         }
 
+        /// <inheritdoc />
         public async Task<IEnumerable<Contact>> SearchAsync(string contactId = null)
         {
             var filterDefinition = !string.IsNullOrWhiteSpace(contactId) ? Builders<Contact>.Filter.Eq(x => x.ContactId, new Guid(contactId)) : FilterDefinition<Contact>.Empty;
@@ -32,6 +36,7 @@
             return cursor.ToEnumerable();
         }
 
+        /// <inheritdoc />
         public async Task<Contact> AddAsync(Contact value)
         {
             value.ContactId = Guid.NewGuid();
@@ -46,6 +51,7 @@
             return await cursor.SingleAsync();
         }
 
+        /// <inheritdoc />
         public async Task RemoveAsync(Guid id)
         {
             var builder = Builders<Contact>.Filter;
@@ -54,6 +60,7 @@
             var result = await collection.DeleteOneAsync(filter);
         }
 
+        /// <inheritdoc />
         public async Task<Contact> ReplaceAsync(Contact value)
         {
             var builder = Builders<Contact>.Filter;

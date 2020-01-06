@@ -4,17 +4,23 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
     <UserSecretsId>e001c247-d752-4746-bfad-e13d13cf235c</UserSecretsId>
+    <AssemblyName>ContactsService</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <CodeAnalysisRuleSet>..\pycapp.ruleset</CodeAnalysisRuleSet>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>bin\ContactsService..xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <CodeAnalysisRuleSet>..\pycapp.ruleset</CodeAnalysisRuleSet>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>bin\ContactsService..xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>

@@ -3,6 +3,9 @@
     using System;
     using MongoDB.Bson;
 
+    /// <summary>
+    /// Contact Details.
+    /// </summary>
     public class Contact
     {
         /// <summary>

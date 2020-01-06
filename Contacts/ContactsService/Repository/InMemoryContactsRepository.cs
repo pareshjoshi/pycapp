@@ -6,6 +6,9 @@
     using System.Threading.Tasks;
     using ContactsService.Models;
 
+    /// <summary>
+    /// The test repository.
+    /// </summary>
     public class InMemoryContactsRepository : IContactsRepository
     {
         private static readonly List<Contact> Contacts;
@@ -15,6 +18,7 @@
             Contacts = new List<Contact>(GetContacts());
         }
 
+        /// <inheritdoc />
         public Task<Contact> AddAsync(Contact value)
         {
             value.ContactId = Guid.NewGuid();
@@ -24,6 +28,7 @@
             return Task.FromResult(value);
         }
 
+        /// <inheritdoc />
         public Task RemoveAsync(Guid id)
         {
             return Task.Run(() =>
@@ -36,6 +41,7 @@
             });
         }
 
+        /// <inheritdoc />
         public Task<Contact> ReplaceAsync(Contact value)
         {
             return Task.Run(() =>
@@ -52,6 +58,7 @@
             });
         }
 
+        /// <inheritdoc />
         public Task<IEnumerable<Contact>> SearchAsync(string mobile = null)
         {
             return Task.FromResult(Contacts.AsEnumerable());
